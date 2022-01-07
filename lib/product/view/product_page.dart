@@ -26,7 +26,7 @@ class _ProductPageState extends State<ProductPage> {
           onPressed: () {
             Get.to(const CreateProduct());
           },
-          child: const Icon(Icons.create),
+          child: const Icon(Icons.add),
         ),
         body: RefreshIndicator(
           onRefresh: () {

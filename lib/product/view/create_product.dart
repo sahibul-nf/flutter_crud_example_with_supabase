@@ -24,7 +24,7 @@ class _CreateProductState extends State<CreateProduct> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("CRUD Product"),
+        title: const Text("Create Product"),
       ),
       body: Form(
         key: _keyForm,

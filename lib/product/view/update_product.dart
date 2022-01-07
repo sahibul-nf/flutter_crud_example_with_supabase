@@ -1,11 +1,11 @@
-
 import 'package:ecommerce_app/product/controller/product_controller.dart';
 import 'package:ecommerce_app/product/widgets/input_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class UpdateProduct extends StatefulWidget {
-  const UpdateProduct({Key? key, required this.name, required this.price, this.id})
+  const UpdateProduct(
+      {Key? key, required this.name, required this.price, this.id})
       : super(key: key);
   final String name;
   final String price;
@@ -32,7 +32,7 @@ class _UpdateProductState extends State<UpdateProduct> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("CRUD Product"),
+        title: const Text("Update Product"),
       ),
       body: Form(
         key: _keyForm,
@@ -55,10 +55,7 @@ class _UpdateProductState extends State<UpdateProduct> {
               ElevatedButton(
                 onPressed: () {
                   var res = controller.updateProduct(
-                    name: nameInput,
-                    price: priceInput,
-                    id: widget.id
-                  );
+                      name: nameInput, price: priceInput, id: widget.id);
                   res.then((value) {
                     if (value) {
                       Get.snackbar("Success", "Succefully update product");

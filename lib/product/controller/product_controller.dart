@@ -26,7 +26,7 @@ class ProductController extends GetxController {
   List<ProductModel> get products => _products();
   var isLoading = true.obs;
 
-  fetchProducts() async {
+  Future fetchProducts() async {
     try {
       final response = await client.from('Product').select('*').execute();
 
@@ -74,7 +74,7 @@ class ProductController extends GetxController {
     }
   }
 
-  updateProduct({String? name, int? price, int? id}) async {
+  Future updateProduct({String? name, int? price, int? id}) async {
     final response = await client
         .from('Product')
         .update({'name': name, 'price': price}).match({'id': id}).execute();
