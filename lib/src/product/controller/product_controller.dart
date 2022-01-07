@@ -7,8 +7,8 @@ import 'package:supabase/supabase.dart';
 
 class ProductController extends GetxController {
   final client = SupabaseClient(
-    "https://aweyauscviogpvaccrbl.supabase.co",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MTQ2NjE2NywiZXhwIjoxOTU3MDQyMTY3fQ.l2FSozoryhfkP4CUQVFY3wADUU1xQlfc3ESvAIcFtcA",
+    "SUPABASE_URL",
+    "API_KEY",
   );
 
   @override
