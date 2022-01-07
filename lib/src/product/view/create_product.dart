@@ -1,21 +1,16 @@
-import 'package:ecommerce_app/product/controller/product_controller.dart';
-import 'package:ecommerce_app/product/widgets/input_text_field.dart';
+import 'package:ecommerce_app/src/product/controller/product_controller.dart';
+import 'package:ecommerce_app/src/product/widgets/input_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class UpdateProduct extends StatefulWidget {
-  const UpdateProduct(
-      {Key? key, required this.name, required this.price, this.id})
-      : super(key: key);
-  final String name;
-  final String price;
-  final int? id;
+class CreateProduct extends StatefulWidget {
+  const CreateProduct({Key? key}) : super(key: key);
 
   @override
-  _UpdateProductState createState() => _UpdateProductState();
+  _CreateProductState createState() => _CreateProductState();
 }
 
-class _UpdateProductState extends State<UpdateProduct> {
+class _CreateProductState extends State<CreateProduct> {
   final _keyForm = GlobalKey<FormState>();
   final controller = Get.put(ProductController());
 
@@ -27,12 +22,9 @@ class _UpdateProductState extends State<UpdateProduct> {
 
   @override
   Widget build(BuildContext context) {
-    nameInputController.text = widget.name;
-    priceInputController.text = widget.price;
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Update Product"),
+        title: const Text("Create Product"),
       ),
       body: Form(
         key: _keyForm,
@@ -54,18 +46,20 @@ class _UpdateProductState extends State<UpdateProduct> {
               const SizedBox(height: 30),
               ElevatedButton(
                 onPressed: () {
-                  var res = controller.updateProduct(
-                      name: nameInput, price: priceInput, id: widget.id);
+                  var res = controller.createProduct(
+                    name: nameInput,
+                    price: priceInput,
+                  );
                   res.then((value) {
                     if (value) {
-                      Get.snackbar("Success", "Succefully update product");
+                      Get.snackbar("Success", "Succefully create new product");
                       controller.fetchProducts();
                     } else {
-                      Get.snackbar("Failed", "Opps, failed update product");
+                      Get.snackbar("Failed", "Opps, failed create new product");
                     }
                   });
                 },
-                child: const Text("Save"),
+                child: const Text("Create"),
               ),
             ],
           ),

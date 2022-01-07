@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:ecommerce_app/product/model/product_model.dart';
+import 'package:ecommerce_app/src/product/model/product_model.dart';
 import 'package:get/get.dart';
 import 'package:supabase/supabase.dart';
 
